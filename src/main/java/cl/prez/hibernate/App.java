@@ -7,11 +7,14 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import cl.prez.hibernate.dao.StyleDao;
 import cl.prez.hibernate.model.Band;
+import cl.prez.hibernate.model.Style;
 import cl.prez.hibernate.model.dto.BandDTO;
 
 public class App {
     public static void main( String[] args ){
+        /*
         // Name in persistence.xml
         final String PERSISTENCE_NAME = "persistence-unit";
 
@@ -32,6 +35,14 @@ public class App {
         System.out.println("Bands 2");
         for(BandDTO band : bandDTOs){
             System.out.println(band);
+        }
+        */
+
+        StyleDao styleDao = new StyleDao();
+        List<Style> styles = styleDao.findAll();
+
+        for(Style style : styles){
+            System.out.println(style);
         }
     }
 }
